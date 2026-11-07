@@ -1,6 +1,7 @@
 # 02 — Deep-Dive Report: Vinpearl — Tổng Hợp & Phân Tích Review Khách Sạn
 
-**Học viên:** Nguyễn Cường — 2A202603425
+**Học viên:** Nguyễn Tiến Cường — 2A202603425 (Team Lead)  
+**Nhánh Git:** `NguyenTienCuong-2A202603425`  
 **Đề tài nhóm:** Vinpearl — Tổng hợp & phân tích review khách sạn đa kênh (Thống nhất toàn nhóm)  
 
 ---

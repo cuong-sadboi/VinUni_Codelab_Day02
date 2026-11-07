@@ -1,7 +1,7 @@
 # 01 — Problem Scan & Quick Assessments (Vin Smart Future)
 
-**Học viên:** Nguyễn Cường — 2A202603425 (Team Lead)  
-**Nhánh Git:** `NguyenCuong`  
+**Học viên:** Nguyễn Tiến Cường — 2A202603425 (Team Lead)  
+**Nhánh Git:** `NguyenTienCuong-2A202603425`  
 **Đơn vị:** Vin Smart Future — Khối Đổi mới & Ứng dụng AI Vingroup  
 **Chủ đề lựa chọn:** Vinpearl — Tổng hợp & phân tích review khách sạn đa kênh  
 

@@ -1,7 +1,7 @@
 # 03 — AI Log & Reflection (Nhật Ký Tương Tác AI)
 
-**Học viên:** Nguyễn Cường — 2A202603425 
-**Nhánh Git:** `NguyenCuong`  
+**Học viên:** Nguyễn Tiến Cường — 2A202603425 (Team Lead)  
+**Nhánh Git:** `NguyenTienCuong-2A202603425`  
 **Công cụ AI:** Google Gemini / Claude — đóng vai trò Trợ lý tư duy (Thought-Partner).
 **Chủ đề bài toán nhóm:** Vinpearl — Tổng hợp & phân tích review khách sạn đa kênh.  
 
