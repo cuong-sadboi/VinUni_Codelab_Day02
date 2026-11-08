@@ -93,9 +93,17 @@ flowchart TD
     F --> G
     G --> H{"Cần mở hoặc chuyển ca?"}
     H -- Có --> I["🟢 Người phụ trách gửi; quản lý xác nhận nhận ca"]
-    H -- Không --> J["Lưu bản ghi đã duyệt"]
-    I --> K["🟢 Quản lý xác minh sơ bộ và quyết định hướng xử lý"]
-    K --> J
+    H -- Không --> J["Lưu bản ghi đã duyệt và trạng thái ca"]
+    I --> K["🟢 Quản lý xác minh sơ bộ; ghi thời điểm và bằng chứng"]
+    K --> Q{"Kết quả có xác nhận phản ánh?"}
+    Q -- Có --> R["🟢 Ghi nhận lỗi đã xác nhận và hướng xử lý"]
+    R --> J
+    Q -- Không / chưa đủ căn cứ --> S["🟢 Ghi chưa xác nhận tại thời điểm kiểm tra; giữ review gốc"]
+    S --> T{"Quản lý cần kiểm tra thêm?"}
+    T -- Có --> U["🟢 Giữ ca mở; phân công kiểm tra thêm hoặc liên hệ khách"]
+    T -- Không --> V["🟢 Đóng ca với kết quả chưa xác nhận và lý do"]
+    U --> J
+    V --> J
     J --> L["Rule: đếm ca đã duyệt trong kỳ"]
     L --> M["🔵 AI soạn tổng hợp có ID nguồn"]
     M --> N{"Khớp số đếm và bằng chứng?"}
@@ -105,6 +113,8 @@ flowchart TD
 ~~~
 
 Nếu danh sách từ khóa do vận hành duyệt phát hiện tín hiệu cần xem gấp, review được **đánh dấu trong hàng đợi người xem ngay**, không chờ LLM thành công. Đây là cờ nội bộ; việc chuyển ca chính thức vẫn cần người duyệt. Khâu nhận ca cần người trực và quy tắc chuyển cấp do quản lý xác nhận trước pilot.
+
+**Khi xác minh không khớp:** Lưu riêng nội dung khách phản ánh và kết quả kiểm tra, kèm người kiểm tra, thời điểm, bằng chứng và lý do quyết định. Ví dụ, review 3 sao nói máy sấy hỏng được đề xuất **P2 vì nội dung phản ánh thiết bị**, không vì số sao. Nếu máy sấy hoạt động khi quản lý kiểm tra, ghi **“chưa xác nhận được tại thời điểm kiểm tra”**, không ghi “khách phản ánh sai” và không tự đổi review thành P3; lỗi có thể gián đoạn hoặc đã được khắc phục. Quản lý quyết định giữ ca mở để kiểm tra thêm/liên hệ khách, hoặc đóng ca với lý do. Bản tổng hợp vẫn tính review này một lần trong số phản ánh đã duyệt, nhưng không tính vào số lỗi đã xác nhận; tách riêng số ca đang kiểm tra và số ca đóng với kết quả chưa xác nhận.
 
 **Dữ liệu tối thiểu:** ID, nguồn/đường dẫn tham chiếu, mã cơ sở, ngày đăng, ngày tiếp nhận, văn bản review và ngôn ngữ. Điểm sao là thông tin phụ; không suy mức khẩn cấp chỉ từ số sao. Loại trùng chắc chắn bằng ID nguồn; review giống nội dung ở nguồn khác chỉ được gắn cờ để kiểm tra.
 
